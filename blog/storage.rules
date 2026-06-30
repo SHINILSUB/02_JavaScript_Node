@@ -1,0 +1,9 @@
+rules_version = '2';
+// 골격 규칙 — 실제 권한 정책은 추후 구현. (이미지: 공개 읽기 / 관리자만 업로드)
+service firebase.storage {
+  match /b/{bucket}/o {
+    match /{allPaths=**} {
+      allow read, write: if false;
+    }
+  }
+}

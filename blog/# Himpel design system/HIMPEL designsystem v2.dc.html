@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; }
+  .hs-card { transition: transform .25s cubic-bezier(.2,.7,.3,1), box-shadow .25s ease; }
+  .hs-card:hover { transform: translateY(-4px); box-shadow: 0 2px 4px rgba(0,0,0,.06), 0 14px 32px rgba(31,115,73,.12); }
+  .hs-feature { transition: transform .3s cubic-bezier(.2,.7,.3,1), box-shadow .3s ease; }
+  .hs-feature:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(31,115,73,.16); }
+  .hs-page { transition: background .15s ease, color .15s ease, border-color .15s ease; }
+  .hs-page:hover { border-color: #1F7349; color: #1F7349; }
+  .hs-navlink { transition: color .15s ease; position:relative; }
+  .hs-navlink:hover { color: #1F7349; }
+  .hs-btn { transition: transform .12s ease, box-shadow .2s ease, background .2s ease, border-color .2s ease, color .2s ease; }
+  .hs-btn-primary:hover { background:#185C3A; }
+  .hs-btn-primary:active { background:#11422A; transform:translateY(0); }
+  .hs-btn-secondary:hover { background:#EAF3EE; }
+  .hs-btn-ghost:hover { color:#1F7349; }
+  .hs-chip { transition: background .15s ease, color .15s ease, border-color .15s ease; cursor:pointer; }
+  .hs-chip:hover { border-color:#1F7349; color:#1F7349; }
+  .hs-input { transition: border-color .18s ease, box-shadow .18s ease; }
+  .hs-input:focus-within { border-color:#1F7349; box-shadow:0 0 0 3px rgba(31,115,73,.12); }
+  .hs-ramp { transition: transform .18s ease; }
+  .hs-ramp:hover { transform: translateY(-2px); }
+</style>
+</helmet>
+
+<div style="background:#FFFFFF; min-height:100vh; font-family:'Pretendard',sans-serif; color:#333; -webkit-font-smoothing:antialiased;">
+
+  <!-- ======= 상단 네비 ======= -->
+  <header style="position:sticky; top:0; z-index:50; background:rgba(255,255,255,.92); backdrop-filter:blur(8px); border-bottom:1px solid #EFEBE3;">
+    <div style="max-width:1200px; margin:0 auto; padding:0 20px; height:68px; display:flex; align-items:center; justify-content:space-between;">
+      <div style="display:flex; align-items:center; gap:10px;">
+        <div style="width:26px; height:26px; border-radius:7px; background:#1F7349; display:flex; align-items:center; justify-content:center; color:#fff; font-weight:700; font-size:15px;">H</div>
+        <span style="font-size:19px; font-weight:700; letter-spacing:-.02em; color:#1F7349;">HIMPEL</span>
+        <span style="font-size:13px; font-weight:400; color:#888; margin-left:2px; letter-spacing:.02em;">BLOG</span>
+        <span style="font-size:11px; font-weight:700; color:#1F7349; background:#EAF3EE; padding:3px 8px; border-radius:999px; margin-left:6px;">v2</span>
+      </div>
+      <nav style="display:flex; align-items:center; gap:30px;">
+        <a href="#" class="hs-navlink" style="font-size:15px; font-weight:700; color:#1F7349; text-decoration:none;">디자인 시스템</a>
+        <a href="#color" class="hs-navlink" style="font-size:15px; font-weight:400; color:#333; text-decoration:none;">컬러</a>
+        <a href="#type" class="hs-navlink" style="font-size:15px; font-weight:400; color:#333; text-decoration:none;">타이포</a>
+        <a href="#space" class="hs-navlink" style="font-size:15px; font-weight:400; color:#333; text-decoration:none;">간격</a>
+        <a href="#component" class="hs-navlink" style="font-size:15px; font-weight:400; color:#333; text-decoration:none;">컴포넌트</a>
+      </nav>
+      <button class="hs-btn hs-btn-primary" style="border:none; background:#1F7349; color:#fff; font-family:inherit; font-size:14px; font-weight:700; padding:10px 20px; border-radius:8px; cursor:pointer; box-shadow:0 2px 8px rgba(31,115,73,.22);">제품 보기</button>
+    </div>
+  </header>
+
+  <!-- ======= 표지 ======= -->
+  <section style="max-width:1200px; margin:0 auto; padding:72px 20px 48px;">
+    <div style="font-size:14px; font-weight:700; color:#1F7349; letter-spacing:.08em; text-transform:uppercase; margin-bottom:18px;">Design System v2.0</div>
+    <h1 style="font-size:52px; line-height:1.12; font-weight:700; letter-spacing:-.03em; margin:0 0 20px; color:#222; text-wrap:balance;">힘펠 블로그<br>디자인 시스템</h1>
+    <p style="font-size:18px; line-height:1.7; font-weight:400; color:#888; max-width:640px; margin:0;">v1의 미니멀·차분한 프리미엄 기조는 유지하면서, 토큰을 체계화했습니다. 그린 톤 스케일·Elevation·Radius·라인하이트를 정식 토큰으로 만들고 실전 컴포넌트를 더했습니다.</p>
+  </section>
+
+  <!-- ======= 00 What's new ======= -->
+  <section style="max-width:1200px; margin:0 auto; padding:0 20px 8px;">
+    <div style="background:#EAF3EE; border:1px solid #D3E6DC; border-radius:16px; padding:30px 32px;">
+      <div style="display:flex; align-items:center; gap:10px; margin-bottom:18px;">
+        <span style="font-size:13px; font-weight:700; color:#fff; background:#1F7349; padding:5px 12px; border-radius:999px;">v1 → v2</span>
+        <span style="font-size:16px; font-weight:700; color:#185C3A;">이번 업그레이드에서 바뀐 것</span>
+      </div>
+      <div style="display:grid; grid-template-columns:repeat(5,1fr); gap:16px;">
+        <div style="background:#fff; border-radius:12px; padding:18px;"><div style="font-size:14px; font-weight:700; color:#222; margin-bottom:6px;">그린 톤 스케일</div><div style="font-size:13px; line-height:1.6; color:#888;">단일값 → 50~900 9단계. 호버·보더·틴트 체계화</div></div>
+        <div style="background:#fff; border-radius:12px; padding:18px;"><div style="font-size:14px; font-weight:700; color:#222; margin-bottom:6px;">Elevation</div><div style="font-size:13px; line-height:1.6; color:#888;">하드코딩 그림자 → E1·E2·E3 토큰</div></div>
+        <div style="background:#fff; border-radius:12px; padding:18px;"><div style="font-size:14px; font-weight:700; color:#222; margin-bottom:6px;">Radius 스케일</div><div style="font-size:13px; line-height:1.6; color:#888;">8·12·16·full 4단계 명문화</div></div>
+        <div style="background:#fff; border-radius:12px; padding:18px;"><div style="font-size:14px; font-weight:700; color:#222; margin-bottom:6px;">태그 대비 보정</div><div style="font-size:13px; line-height:1.6; color:#888;">솔리드 + 소프트 2종, 가독성 강화</div></div>
+        <div style="background:#fff; border-radius:12px; padding:18px;"><div style="font-size:14px; font-weight:700; color:#222; margin-bottom:6px;">실전 컴포넌트</div><div style="font-size:13px; line-height:1.6; color:#888;">피처 카드·필터칩·검색·브레드크럼</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= 01 컬러 ======= -->
+  <section id="color" style="margin-top:64px; background:#FBFAF7; border-top:1px solid #EFEBE3; border-bottom:1px solid #EFEBE3;">
+    <div style="max-width:1200px; margin:0 auto; padding:72px 20px;">
+      <div style="display:flex; align-items:baseline; gap:14px; margin-bottom:8px;">
+        <span style="font-size:14px; font-weight:700; color:#1F7349; letter-spacing:.06em;">01</span>
+        <h2 style="font-size:30px; font-weight:700; letter-spacing:-.02em; margin:0; color:#222;">컬러 시스템</h2>
+      </div>
+      <p style="font-size:16px; line-height:1.7; color:#888; margin:0 0 36px; max-width:580px;">주조색은 여전히 Amazon Green 하나. 대신 그 한 색을 9단계 톤으로 펼쳐 호버·보더·틴트까지 한 색 안에서 해결합니다. 배경 전면 사용 금지 원칙은 유지.</p>
+
+      <!-- 그린 톤 스케일 -->
+      <h3 style="font-size:18px; font-weight:700; color:#222; margin:0 0 16px;">Amazon Green · 톤 스케일 <span style="font-size:13px; font-weight:400; color:#888;">(700이 브랜드 기준값)</span></h3>
+      <div style="display:grid; grid-template-columns:repeat(9,1fr); gap:10px; margin-bottom:18px;">
+        <div class="hs-ramp"><div style="height:88px; border-radius:10px; background:#EAF3EE; border:1px solid #E0EAE4;"></div><div style="font-size:13px; font-weight:700; color:#222; margin-top:10px;">50</div><div style="font-size:11px; color:#888;">#EAF3EE</div></div>
+        <div class="hs-ramp"><div style="height:88px; border-radius:10px; background:#D3E6DC;"></div><div style="font-size:13px; font-weight:700; color:#222; margin-top:10px;">100</div><div style="font-size:11px; color:#888;">#D3E6DC</div></div>
+        <div class="hs-ramp"><div style="height:88px; border-radius:10px; background:#A8CDBA;"></div><div style="font-size:13px; font-weight:700; color:#222; margin-top:10px;">200</div><div style="font-size:11px; color:#888;">#A8CDBA</div></div>
+        <div class="hs-ramp"><div style="height:88px; border-radius:10px; background:#74B393;"></div><div style="font-size:13px; font-weight:700; color:#222; margin-top:10px;">300</div><div style="font-size:11px; color:#888;">#74B393</div></div>
+        <div class="hs-ramp"><div style="height:88px; border-radius:10px; background:#449E72;"></div><div style="font-size:13px; font-weight:700; color:#222; margin-top:10px;">500</div><div style="font-size:11px; color:#888;">#449E72</div></div>
+        <div class="hs-ramp"><div style="height:88px; border-radius:10px; background:#2A8559;"></div><div style="font-size:13px; font-weight:700; color:#222; margin-top:10px;">600</div><div style="font-size:11px; color:#888;">#2A8559</div></div>
+        <div class="hs-ramp"><div style="height:88px; border-radius:10px; background:#1F7349; outline:2px solid #1F7349; outline-offset:2px;"></div><div style="font-size:13px; font-weight:700; color:#1F7349; margin-top:10px;">700 ★</div><div style="font-size:11px; color:#888;">#1F7349</div></div>
+        <div class="hs-ramp"><div style="height:88px; border-radius:10px; background:#185C3A;"></div><div style="font-size:13px; font-weight:700; color:#222; margin-top:10px;">800</div><div style="font-size:11px; color:#888;">#185C3A</div></div>
+        <div class="hs-ramp"><div style="height:88px; border-radius:10px; background:#11422A;"></div><div style="font-size:13px; font-weight:700; color:#222; margin-top:10px;">900</div><div style="font-size:11px; color:#888;">#11422A</div></div>
+      </div>
+      <div style="display:flex; gap:24px; flex-wrap:wrap; margin-bottom:44px; font-size:13px; color:#888;">
+        <span><b style="color:#1F7349;">700</b> 로고·1차버튼·강조</span>
+        <span><b style="color:#185C3A;">800 / 900</b> 버튼 호버·액티브</span>
+        <span><b style="color:#2A8559;">500/600</b> 보조 강조·아이콘</span>
+        <span><b style="color:#449E72;">100/200</b> 보더·구분선</span>
+        <span><b style="color:#1F7349;">50</b> 틴트 배경(칩·뱃지)</span>
+      </div>
+
+      <!-- 배경/텍스트 -->
+      <h3 style="font-size:18px; font-weight:700; color:#222; margin:0 0 16px;">배경 · 텍스트 (뉴트럴)</h3>
+      <div style="display:grid; grid-template-columns:repeat(6,1fr); gap:14px; margin-bottom:44px;">
+        <div style="background:#fff; border-radius:12px; overflow:hidden; box-shadow:0 1px 3px rgba(0,0,0,.06);"><div style="height:64px; background:#FFFFFF; border-bottom:1px solid #EFEBE3;"></div><div style="padding:14px;"><div style="font-size:13px; font-weight:700; color:#222;">화이트</div><div style="font-size:11px; color:#888; margin-top:3px;">#FFFFFF · 기본배경</div></div></div>
+        <div style="background:#fff; border-radius:12px; overflow:hidden; box-shadow:0 1px 3px rgba(0,0,0,.06);"><div style="height:64px; background:#FBFAF7;"></div><div style="padding:14px;"><div style="font-size:13px; font-weight:700; color:#222;">섹션 톤</div><div style="font-size:11px; color:#888; margin-top:3px;">#FBFAF7 · 면 구분</div></div></div>
+        <div style="background:#fff; border-radius:12px; overflow:hidden; box-shadow:0 1px 3px rgba(0,0,0,.06);"><div style="height:64px; background:#D1C7B6;"></div><div style="padding:14px;"><div style="font-size:13px; font-weight:700; color:#222;">웜그레이</div><div style="font-size:11px; color:#888; margin-top:3px;">#D1C7B6 · 부자재</div></div></div>
+        <div style="background:#fff; border-radius:12px; overflow:hidden; box-shadow:0 1px 3px rgba(0,0,0,.06);"><div style="height:64px; background:#222;"></div><div style="padding:14px;"><div style="font-size:13px; font-weight:700; color:#222;">제목</div><div style="font-size:11px; color:#888; margin-top:3px;">#222 · Heading</div></div></div>
+        <div style="background:#fff; border-radius:12px; overflow:hidden; box-shadow:0 1px 3px rgba(0,0,0,.06);"><div style="height:64px; background:#333;"></div><div style="padding:14px;"><div style="font-size:13px; font-weight:700; color:#222;">본문</div><div style="font-size:11px; color:#888; margin-top:3px;">#333 · Body</div></div></div>
+        <div style="background:#fff; border-radius:12px; overflow:hidden; box-shadow:0 1px 3px rgba(0,0,0,.06);"><div style="height:64px; background:#888;"></div><div style="padding:14px;"><div style="font-size:13px; font-weight:700; color:#222;">보조</div><div style="font-size:11px; color:#888; margin-top:3px;">#888 · 메타</div></div></div>
+      </div>
+
+      <!-- 카테고리 태그 — 솔리드 + 소프트 -->
+      <h3 style="font-size:18px; font-weight:700; color:#222; margin:0 0 6px;">카테고리 태그 <span style="font-size:13px; font-weight:400; color:#888;">(솔리드 = 카드 썸네일 위 / 소프트 = 본문·필터)</span></h3>
+      <p style="font-size:13px; color:#888; margin:0 0 18px;">v1 대비 라임·부자재 태그의 텍스트 대비를 보정했습니다.</p>
+      <div style="background:#fff; border:1px solid #EFEBE3; border-radius:16px; overflow:hidden; box-shadow:0 1px 3px rgba(0,0,0,.04);">
+        <table style="width:100%; border-collapse:collapse; font-size:14px;">
+          <thead><tr style="background:#FBFAF7;">
+            <th style="text-align:left; padding:14px 20px; font-weight:700; color:#222; border-bottom:1px solid #EFEBE3;">카테고리</th>
+            <th style="text-align:left; padding:14px 16px; font-weight:700; color:#222; border-bottom:1px solid #EFEBE3;">솔리드</th>
+            <th style="text-align:left; padding:14px 16px; font-weight:700; color:#222; border-bottom:1px solid #EFEBE3;">소프트</th>
+            <th style="text-align:right; padding:14px 20px; font-weight:700; color:#222; border-bottom:1px solid #EFEBE3;">기준색</th>
+          </tr></thead>
+          <tbody>
+            <tr><td style="padding:13px 20px; color:#333; border-bottom:1px solid #F2EFE8;">시스템 환기가전</td><td style="padding:13px 16px; border-bottom:1px solid #F2EFE8;"><span style="font-size:12px; font-weight:700; color:#3F4D0E; background:#AFC732; padding:6px 13px; border-radius:999px;">시스템 환기가전</span></td><td style="padding:13px 16px; border-bottom:1px solid #F2EFE8;"><span style="font-size:12px; font-weight:700; color:#5A6B14; background:#F4F7E3; padding:6px 13px; border-radius:999px;">시스템 환기가전</span></td><td style="padding:13px 20px; text-align:right; color:#888; font-weight:700; border-bottom:1px solid #F2EFE8;">#AFC732</td></tr>
+            <tr><td style="padding:13px 20px; color:#333; border-bottom:1px solid #F2EFE8;">욕실 환기가전</td><td style="padding:13px 16px; border-bottom:1px solid #F2EFE8;"><span style="font-size:12px; font-weight:700; color:#fff; background:#F48921; padding:6px 13px; border-radius:999px;">욕실 환기가전</span></td><td style="padding:13px 16px; border-bottom:1px solid #F2EFE8;"><span style="font-size:12px; font-weight:700; color:#B85F12; background:#FDEEE0; padding:6px 13px; border-radius:999px;">욕실 환기가전</span></td><td style="padding:13px 20px; text-align:right; color:#888; font-weight:700; border-bottom:1px solid #F2EFE8;">#F48921</td></tr>
+            <tr><td style="padding:13px 20px; color:#333; border-bottom:1px solid #F2EFE8;">주방 환기가전</td><td style="padding:13px 16px; border-bottom:1px solid #F2EFE8;"><span style="font-size:12px; font-weight:700; color:#fff; background:#62287A; padding:6px 13px; border-radius:999px;">주방 환기가전</span></td><td style="padding:13px 16px; border-bottom:1px solid #F2EFE8;"><span style="font-size:12px; font-weight:700; color:#62287A; background:#F0E9F3; padding:6px 13px; border-radius:999px;">주방 환기가전</span></td><td style="padding:13px 20px; text-align:right; color:#888; font-weight:700; border-bottom:1px solid #F2EFE8;">#62287A</td></tr>
+            <tr><td style="padding:13px 20px; color:#333; border-bottom:1px solid #F2EFE8;">생활 에어가전</td><td style="padding:13px 16px; border-bottom:1px solid #F2EFE8;"><span style="font-size:12px; font-weight:700; color:#fff; background:#0054A2; padding:6px 13px; border-radius:999px;">생활 에어가전</span></td><td style="padding:13px 16px; border-bottom:1px solid #F2EFE8;"><span style="font-size:12px; font-weight:700; color:#0054A2; background:#E5EEF6; padding:6px 13px; border-radius:999px;">생활 에어가전</span></td><td style="padding:13px 20px; text-align:right; color:#888; font-weight:700; border-bottom:1px solid #F2EFE8;">#0054A2</td></tr>
+            <tr><td style="padding:13px 20px; color:#333;">부자재</td><td style="padding:13px 16px;"><span style="font-size:12px; font-weight:700; color:#5C4F3A; background:#D1C7B6; padding:6px 13px; border-radius:999px;">부자재</span></td><td style="padding:13px 16px;"><span style="font-size:12px; font-weight:700; color:#6B5D45; background:#F5F1EA; padding:6px 13px; border-radius:999px;">부자재</span></td><td style="padding:13px 20px; text-align:right; color:#888; font-weight:700;">#D1C7B6</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= 02 타이포 ======= -->
+  <section id="type" style="max-width:1200px; margin:0 auto; padding:72px 20px;">
+    <div style="display:flex; align-items:baseline; gap:14px; margin-bottom:8px;">
+      <span style="font-size:14px; font-weight:700; color:#1F7349; letter-spacing:.06em;">02</span>
+      <h2 style="font-size:30px; font-weight:700; letter-spacing:-.02em; margin:0; color:#222;">타이포그래피</h2>
+    </div>
+    <p style="font-size:16px; line-height:1.7; color:#888; margin:0 0 36px; max-width:580px;">전체 Pretendard. v2에서는 크기·weight에 더해 line-height와 letter-spacing을 토큰으로 고정해 화면마다 흔들리지 않게 했습니다.</p>
+
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:start;">
+      <div style="display:flex; flex-direction:column; gap:20px;">
+        <div style="border-bottom:1px solid #EFEBE3; padding-bottom:20px;">
+          <div style="font-size:12px; color:#888; margin-bottom:8px;">페이지 제목 · H1 · 40 / 700 / lh 1.2 / ls −.02em</div>
+          <div style="font-size:40px; font-weight:700; letter-spacing:-.02em; color:#222; line-height:1.2;">환기의 기준을 바꾸다</div>
+        </div>
+        <div style="border-bottom:1px solid #EFEBE3; padding-bottom:20px;">
+          <div style="font-size:12px; color:#888; margin-bottom:8px;">섹션 제목 · H2 · 30 / 700 / lh 1.25</div>
+          <div style="font-size:30px; font-weight:700; letter-spacing:-.02em; color:#222; line-height:1.25;">신제품 이야기</div>
+        </div>
+        <div style="border-bottom:1px solid #EFEBE3; padding-bottom:20px;">
+          <div style="font-size:12px; color:#888; margin-bottom:8px;">카드 제목 · 20 / 700 / lh 1.35</div>
+          <div style="font-size:20px; font-weight:700; color:#222; line-height:1.35;">욕실 환기 이렇게 바꾸세요</div>
+        </div>
+        <div style="border-bottom:1px solid #EFEBE3; padding-bottom:20px;">
+          <div style="font-size:12px; color:#888; margin-bottom:8px;">본문 · Body · 16 / 400 / lh 1.7</div>
+          <div style="font-size:16px; font-weight:400; line-height:1.7; color:#333;">힘펠은 공기의 흐름을 설계합니다. 보이지 않는 환기를 가장 단순하고 정직한 방식으로 풀어냅니다.</div>
+        </div>
+        <div style="display:flex; gap:28px;">
+          <div><div style="font-size:12px; color:#888; margin-bottom:8px;">태그 · 13 / 500</div><div style="font-size:13px; font-weight:500; color:#1F7349;">#환기가전</div></div>
+          <div><div style="font-size:12px; color:#888; margin-bottom:8px;">날짜 · 14 / 400</div><div style="font-size:14px; font-weight:400; color:#888;">2026.06.25</div></div>
+        </div>
+      </div>
+
+      <div style="display:flex; flex-direction:column; gap:24px;">
+        <div style="background:#fff; border:1px solid #EFEBE3; border-radius:16px; overflow:hidden; box-shadow:0 1px 3px rgba(0,0,0,.04);">
+          <table style="width:100%; border-collapse:collapse; font-size:14px;">
+            <thead><tr style="background:#FBFAF7;">
+              <th style="text-align:left; padding:14px 20px; font-weight:700; color:#222; border-bottom:1px solid #EFEBE3;">역할</th>
+              <th style="text-align:right; padding:14px 12px; font-weight:700; color:#222; border-bottom:1px solid #EFEBE3;">크기</th>
+              <th style="text-align:right; padding:14px 12px; font-weight:700; color:#222; border-bottom:1px solid #EFEBE3;">Wt</th>
+              <th style="text-align:right; padding:14px 20px; font-weight:700; color:#222; border-bottom:1px solid #EFEBE3;">line-h</th>
+            </tr></thead>
+            <tbody>
+              <tr><td style="padding:13px 20px; color:#333; border-bottom:1px solid #F2EFE8;">페이지 제목 H1</td><td style="padding:13px 12px; text-align:right; color:#1F7349; font-weight:700; border-bottom:1px solid #F2EFE8;">40px</td><td style="padding:13px 12px; text-align:right; color:#888; border-bottom:1px solid #F2EFE8;">700</td><td style="padding:13px 20px; text-align:right; color:#888; border-bottom:1px solid #F2EFE8;">1.2</td></tr>
+              <tr><td style="padding:13px 20px; color:#333; border-bottom:1px solid #F2EFE8;">섹션 제목 H2</td><td style="padding:13px 12px; text-align:right; color:#1F7349; font-weight:700; border-bottom:1px solid #F2EFE8;">30px</td><td style="padding:13px 12px; text-align:right; color:#888; border-bottom:1px solid #F2EFE8;">700</td><td style="padding:13px 20px; text-align:right; color:#888; border-bottom:1px solid #F2EFE8;">1.25</td></tr>
+              <tr><td style="padding:13px 20px; color:#333; border-bottom:1px solid #F2EFE8;">카드 제목</td><td style="padding:13px 12px; text-align:right; color:#1F7349; font-weight:700; border-bottom:1px solid #F2EFE8;">20px</td><td style="padding:13px 12px; text-align:right; color:#888; border-bottom:1px solid #F2EFE8;">700</td><td style="padding:13px 20px; text-align:right; color:#888; border-bottom:1px solid #F2EFE8;">1.35</td></tr>
+              <tr><td style="padding:13px 20px; color:#333; border-bottom:1px solid #F2EFE8;">본문 Body</td><td style="padding:13px 12px; text-align:right; color:#1F7349; font-weight:700; border-bottom:1px solid #F2EFE8;">16px</td><td style="padding:13px 12px; text-align:right; color:#888; border-bottom:1px solid #F2EFE8;">400</td><td style="padding:13px 20px; text-align:right; color:#888; border-bottom:1px solid #F2EFE8;">1.7</td></tr>
+              <tr><td style="padding:13px 20px; color:#333; border-bottom:1px solid #F2EFE8;">태그</td><td style="padding:13px 12px; text-align:right; color:#1F7349; font-weight:700; border-bottom:1px solid #F2EFE8;">13px</td><td style="padding:13px 12px; text-align:right; color:#888; border-bottom:1px solid #F2EFE8;">500</td><td style="padding:13px 20px; text-align:right; color:#888; border-bottom:1px solid #F2EFE8;">1.4</td></tr>
+              <tr><td style="padding:13px 20px; color:#333;">날짜 · 메타</td><td style="padding:13px 12px; text-align:right; color:#1F7349; font-weight:700;">14px</td><td style="padding:13px 12px; text-align:right; color:#888;">400</td><td style="padding:13px 20px; text-align:right; color:#888;">1.5</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div style="background:#FBFAF7; border:1px solid #EFEBE3; border-radius:16px; padding:20px 24px;">
+          <div style="font-size:13px; font-weight:700; color:#888; margin-bottom:12px;">letter-spacing 토큰</div>
+          <div style="display:flex; flex-direction:column; gap:8px; font-size:14px; color:#333;">
+            <div style="display:flex; justify-content:space-between;"><span>제목(타이트)</span><span style="color:#1F7349; font-weight:700;">−0.02 ~ −0.03em</span></div>
+            <div style="display:flex; justify-content:space-between;"><span>본문(기본)</span><span style="color:#1F7349; font-weight:700;">0</span></div>
+            <div style="display:flex; justify-content:space-between;"><span>라벨·아이브로(루즈)</span><span style="color:#1F7349; font-weight:700;">+0.06 ~ +0.08em</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= 03 간격·그리드·radius·elevation ======= -->
+  <section id="space" style="background:#FBFAF7; border-top:1px solid #EFEBE3; border-bottom:1px solid #EFEBE3;">
+    <div style="max-width:1200px; margin:0 auto; padding:72px 20px;">
+      <div style="display:flex; align-items:baseline; gap:14px; margin-bottom:8px;">
+        <span style="font-size:14px; font-weight:700; color:#1F7349; letter-spacing:.06em;">03</span>
+        <h2 style="font-size:30px; font-weight:700; letter-spacing:-.02em; margin:0; color:#222;">간격 · 그리드 · Radius · Elevation</h2>
+      </div>
+      <p style="font-size:16px; line-height:1.7; color:#888; margin:0 0 36px; max-width:580px;">8px 그리드 기반. v2에서 radius와 그림자(Elevation)를 정식 토큰으로 추가했습니다.</p>
+
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-bottom:24px;">
+        <!-- 간격 표 -->
+        <div style="background:#fff; border:1px solid #EFEBE3; border-radius:16px; overflow:hidden; box-shadow:0 1px 3px rgba(0,0,0,.04);">
+          <div style="font-size:13px; font-weight:700; color:#888; padding:16px 20px 0;">간격 · 그리드</div>
+          <table style="width:100%; border-collapse:collapse; font-size:14px; margin-top:8px;">
+            <tbody>
+              <tr><td style="padding:13px 20px; color:#333; border-bottom:1px solid #F2EFE8;">섹션 간 gap</td><td style="padding:13px 20px; text-align:right; color:#1F7349; font-weight:700; border-bottom:1px solid #F2EFE8;">72px</td></tr>
+              <tr><td style="padding:13px 20px; color:#333; border-bottom:1px solid #F2EFE8;">카드 간 gap</td><td style="padding:13px 20px; text-align:right; color:#1F7349; font-weight:700; border-bottom:1px solid #F2EFE8;">24px</td></tr>
+              <tr><td style="padding:13px 20px; color:#333; border-bottom:1px solid #F2EFE8;">카드 내부 padding</td><td style="padding:13px 20px; text-align:right; color:#1F7349; font-weight:700; border-bottom:1px solid #F2EFE8;">24px</td></tr>
+              <tr><td style="padding:13px 20px; color:#333; border-bottom:1px solid #F2EFE8;">컨테이너 좌우 padding</td><td style="padding:13px 20px; text-align:right; color:#1F7349; font-weight:700; border-bottom:1px solid #F2EFE8;">20px</td></tr>
+              <tr><td style="padding:13px 20px; color:#333; border-bottom:1px solid #F2EFE8;">컨테이너 최대 너비</td><td style="padding:13px 20px; text-align:right; color:#1F7349; font-weight:700; border-bottom:1px solid #F2EFE8;">1200px</td></tr>
+              <tr><td style="padding:13px 20px; color:#333;">그리드 컬럼 · gap</td><td style="padding:13px 20px; text-align:right; color:#1F7349; font-weight:700;">3col · 24px</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- 스페이싱 스케일 -->
+        <div style="background:#fff; border:1px solid #EFEBE3; border-radius:16px; padding:24px; box-shadow:0 1px 3px rgba(0,0,0,.04); display:flex; flex-direction:column; gap:16px; justify-content:center;">
+          <div style="font-size:13px; font-weight:700; color:#888; margin-bottom:2px;">스페이싱 스케일 (8px 기준)</div>
+          <div style="display:flex; align-items:center; gap:14px;"><div style="width:8px; height:18px; background:#1F7349; border-radius:3px;"></div><span style="font-size:13px; color:#888;">8 · XS</span></div>
+          <div style="display:flex; align-items:center; gap:14px;"><div style="width:16px; height:18px; background:#1F7349; border-radius:3px;"></div><span style="font-size:13px; color:#888;">16 · S</span></div>
+          <div style="display:flex; align-items:center; gap:14px;"><div style="width:24px; height:18px; background:#1F7349; border-radius:3px;"></div><span style="font-size:13px; color:#888;">24 · M (카드 gap·padding)</span></div>
+          <div style="display:flex; align-items:center; gap:14px;"><div style="width:48px; height:18px; background:#1F7349; border-radius:3px;"></div><span style="font-size:13px; color:#888;">48 · L</span></div>
+          <div style="display:flex; align-items:center; gap:14px;"><div style="width:72px; height:18px; background:#1F7349; border-radius:3px;"></div><span style="font-size:13px; color:#888;">72 · XL (섹션 gap)</span></div>
+        </div>
+      </div>
+
+      <!-- radius + elevation -->
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px;">
+        <!-- radius -->
+        <div style="background:#fff; border:1px solid #EFEBE3; border-radius:16px; padding:24px; box-shadow:0 1px 3px rgba(0,0,0,.04);">
+          <div style="font-size:13px; font-weight:700; color:#888; margin-bottom:18px;">Radius 스케일 <span style="font-weight:400;">(NEW)</span></div>
+          <div style="display:flex; gap:22px; align-items:flex-end;">
+            <div style="text-align:center;"><div style="width:72px; height:72px; background:#EAF3EE; border:1.5px solid #1F7349; border-radius:8px;"></div><div style="font-size:13px; font-weight:700; color:#222; margin-top:10px;">8px</div><div style="font-size:11px; color:#888;">버튼·인풋·태그</div></div>
+            <div style="text-align:center;"><div style="width:72px; height:72px; background:#EAF3EE; border:1.5px solid #1F7349; border-radius:12px;"></div><div style="font-size:13px; font-weight:700; color:#222; margin-top:10px;">12px</div><div style="font-size:11px; color:#888;">카드</div></div>
+            <div style="text-align:center;"><div style="width:72px; height:72px; background:#EAF3EE; border:1.5px solid #1F7349; border-radius:16px;"></div><div style="font-size:13px; font-weight:700; color:#222; margin-top:10px;">16px</div><div style="font-size:11px; color:#888;">피처·패널</div></div>
+            <div style="text-align:center;"><div style="width:72px; height:72px; background:#EAF3EE; border:1.5px solid #1F7349; border-radius:999px;"></div><div style="font-size:13px; font-weight:700; color:#222; margin-top:10px;">full</div><div style="font-size:11px; color:#888;">칩·뱃지</div></div>
+          </div>
+        </div>
+
+        <!-- elevation -->
+        <div style="background:#fff; border:1px solid #EFEBE3; border-radius:16px; padding:24px; box-shadow:0 1px 3px rgba(0,0,0,.04);">
+          <div style="font-size:13px; font-weight:700; color:#888; margin-bottom:18px;">Elevation <span style="font-weight:400;">(NEW)</span></div>
+          <div style="display:flex; gap:22px;">
+            <div style="text-align:center; flex:1;"><div style="height:72px; background:#fff; border-radius:12px; box-shadow:0 1px 3px rgba(0,0,0,.06), 0 4px 16px rgba(0,0,0,.04);"></div><div style="font-size:13px; font-weight:700; color:#222; margin-top:12px;">E1</div><div style="font-size:11px; color:#888; line-height:1.5;">카드 기본</div></div>
+            <div style="text-align:center; flex:1;"><div style="height:72px; background:#fff; border-radius:12px; box-shadow:0 2px 4px rgba(0,0,0,.06), 0 14px 32px rgba(31,115,73,.12);"></div><div style="font-size:13px; font-weight:700; color:#222; margin-top:12px;">E2</div><div style="font-size:11px; color:#888; line-height:1.5;">호버·드롭다운</div></div>
+            <div style="text-align:center; flex:1;"><div style="height:72px; background:#fff; border-radius:12px; box-shadow:0 12px 40px rgba(31,115,73,.16);"></div><div style="font-size:13px; font-weight:700; color:#222; margin-top:12px;">E3</div><div style="font-size:11px; color:#888; line-height:1.5;">피처·모달</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= 04 카드 ======= -->
+  <section id="card" style="max-width:1200px; margin:0 auto; padding:72px 20px;">
+    <div style="display:flex; align-items:baseline; gap:14px; margin-bottom:8px;">
+      <span style="font-size:14px; font-weight:700; color:#1F7349; letter-spacing:.06em;">04</span>
+      <h2 style="font-size:30px; font-weight:700; letter-spacing:-.02em; margin:0; color:#222;">카드 스타일</h2>
+    </div>
+    <p style="font-size:16px; line-height:1.7; color:#888; margin:0 0 36px; max-width:580px;">기본 카드(E1, 호버 시 E2)에 더해, 목록 최상단에 쓰는 가로형 피처 카드를 v2에서 추가했습니다.</p>
+
+    <!-- 피처 카드 -->
+    <h3 style="font-size:18px; font-weight:700; color:#222; margin:0 0 16px;">피처 카드 <span style="font-size:13px; font-weight:400; color:#888;">(가로형 · radius 16 · E1→E3)</span></h3>
+    <article class="hs-feature" style="background:#fff; border-radius:16px; overflow:hidden; box-shadow:0 1px 3px rgba(0,0,0,.06), 0 4px 16px rgba(0,0,0,.04); display:grid; grid-template-columns:1.1fr 1fr; cursor:pointer; margin-bottom:48px;">
+      <div style="background:repeating-linear-gradient(135deg,#EEF1E8,#EEF1E8 12px,#E6EBDC 12px,#E6EBDC 24px); min-height:280px; position:relative;"><span style="position:absolute; left:20px; top:20px; font-size:12px; font-weight:700; color:#3F4D0E; background:#AFC732; padding:6px 14px; border-radius:999px;">시스템 환기가전</span></div>
+      <div style="padding:44px 40px; display:flex; flex-direction:column; justify-content:center;">
+        <div style="font-size:13px; font-weight:700; color:#1F7349; letter-spacing:.06em; margin-bottom:14px;">FEATURED</div>
+        <div style="font-size:30px; font-weight:700; color:#222; line-height:1.25; letter-spacing:-.02em; margin-bottom:14px;">집 전체의 공기를 하루 종일 바꾸는 법</div>
+        <p style="font-size:16px; line-height:1.7; color:#333; margin:0 0 24px;">전열교환 환기 시스템의 원리부터 설치, 유지관리까지. 보이지 않는 환기가 어떻게 일상을 바꾸는지 짚어봅니다.</p>
+        <div style="display:flex; align-items:center; gap:12px; font-size:14px; color:#888;"><span style="font-weight:700; color:#333;">힘펠 에디터</span><span>·</span><span>2026.06.28</span><span>·</span><span>읽기 6분</span></div>
+      </div>
+    </article>
+
+    <h3 style="font-size:18px; font-weight:700; color:#222; margin:0 0 16px;">기본 카드 <span style="font-size:13px; font-weight:400; color:#888;">(세로형 · radius 12 · 호버 −4px)</span></h3>
+    <div style="display:grid; grid-template-columns:1.6fr 1fr; gap:48px; align-items:start;">
+      <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:24px;">
+        <article class="hs-card" style="background:#fff; border-radius:12px; overflow:hidden; box-shadow:0 1px 3px rgba(0,0,0,.06), 0 4px 16px rgba(0,0,0,.04); cursor:pointer;">
+          <div style="height:120px; background:repeating-linear-gradient(135deg,#F1EDE4,#F1EDE4 10px,#ECE7DC 10px,#ECE7DC 20px); position:relative;"><span style="position:absolute; left:14px; top:14px; font-size:11px; font-weight:700; color:#fff; background:#F48921; padding:5px 11px; border-radius:999px;">욕실 환기가전</span></div>
+          <div style="padding:24px;"><div style="font-size:20px; font-weight:700; color:#222; line-height:1.35; letter-spacing:-.01em;">욕실 곰팡이, 환기로 끝내기</div><p style="font-size:16px; line-height:1.7; color:#333; margin:10px 0 16px;">습기 잡는 가장 정직한 방법.</p><div style="font-size:14px; color:#888;">2026.06.25</div></div>
+        </article>
+        <article class="hs-card" style="background:#fff; border-radius:12px; overflow:hidden; box-shadow:0 1px 3px rgba(0,0,0,.06), 0 4px 16px rgba(0,0,0,.04); cursor:pointer;">
+          <div style="height:120px; background:repeating-linear-gradient(135deg,#F1EDE4,#F1EDE4 10px,#ECE7DC 10px,#ECE7DC 20px); position:relative;"><span style="position:absolute; left:14px; top:14px; font-size:11px; font-weight:700; color:#3F4D0E; background:#AFC732; padding:5px 11px; border-radius:999px;">시스템 환기가전</span></div>
+          <div style="padding:24px;"><div style="font-size:20px; font-weight:700; color:#222; line-height:1.35; letter-spacing:-.01em;">전열교환기 200% 활용법</div><p style="font-size:16px; line-height:1.7; color:#333; margin:10px 0 16px;">에너지 손실 없는 환기.</p><div style="font-size:14px; color:#888;">2026.06.20</div></div>
+        </article>
+        <article class="hs-card" style="background:#fff; border-radius:12px; overflow:hidden; box-shadow:0 1px 3px rgba(0,0,0,.06), 0 4px 16px rgba(0,0,0,.04); cursor:pointer;">
+          <div style="height:120px; background:repeating-linear-gradient(135deg,#F1EDE4,#F1EDE4 10px,#ECE7DC 10px,#ECE7DC 20px); position:relative;"><span style="position:absolute; left:14px; top:14px; font-size:11px; font-weight:700; color:#fff; background:#0054A2; padding:5px 11px; border-radius:999px;">생활 에어가전</span></div>
+          <div style="padding:24px;"><div style="font-size:20px; font-weight:700; color:#222; line-height:1.35; letter-spacing:-.01em;">공기청정 루틴 만들기</div><p style="font-size:16px; line-height:1.7; color:#333; margin:10px 0 16px;">계절별 관리 가이드.</p><div style="font-size:14px; color:#888;">2026.06.12</div></div>
+        </article>
+      </div>
+
+      <div style="background:#fff; border:1px solid #EFEBE3; border-radius:16px; overflow:hidden; box-shadow:0 1px 3px rgba(0,0,0,.04);">
+        <table style="width:100%; border-collapse:collapse; font-size:14px;">
+          <thead><tr style="background:#FBFAF7;"><th style="text-align:left; padding:14px 20px; font-weight:700; color:#222; border-bottom:1px solid #EFEBE3;">속성</th><th style="text-align:right; padding:14px 20px; font-weight:700; color:#222; border-bottom:1px solid #EFEBE3;">값</th></tr></thead>
+          <tbody>
+            <tr><td style="padding:13px 20px; color:#333; border-bottom:1px solid #F2EFE8;">기본 카드 radius</td><td style="padding:13px 20px; text-align:right; color:#1F7349; font-weight:700; border-bottom:1px solid #F2EFE8;">12px</td></tr>
+            <tr><td style="padding:13px 20px; color:#333; border-bottom:1px solid #F2EFE8;">피처 카드 radius</td><td style="padding:13px 20px; text-align:right; color:#1F7349; font-weight:700; border-bottom:1px solid #F2EFE8;">16px</td></tr>
+            <tr><td style="padding:13px 20px; color:#333; border-bottom:1px solid #F2EFE8;">내부 padding</td><td style="padding:13px 20px; text-align:right; color:#1F7349; font-weight:700; border-bottom:1px solid #F2EFE8;">24px</td></tr>
+            <tr><td style="padding:13px 20px; color:#333; border-bottom:1px solid #F2EFE8;">기본 그림자</td><td style="padding:13px 20px; text-align:right; color:#888; font-weight:700; font-size:12px; border-bottom:1px solid #F2EFE8;">E1</td></tr>
+            <tr><td style="padding:13px 20px; color:#333; border-bottom:1px solid #F2EFE8;">호버 이동 / 그림자</td><td style="padding:13px 20px; text-align:right; color:#1F7349; font-weight:700; border-bottom:1px solid #F2EFE8;">−4px / E2</td></tr>
+            <tr><td style="padding:13px 20px; color:#333;">트랜지션</td><td style="padding:13px 20px; text-align:right; color:#1F7349; font-weight:700;">.25s</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= 05 공통 컴포넌트 ======= -->
+  <section id="component" style="background:#FBFAF7; border-top:1px solid #EFEBE3;">
+    <div style="max-width:1200px; margin:0 auto; padding:72px 20px;">
+      <div style="display:flex; align-items:baseline; gap:14px; margin-bottom:8px;">
+        <span style="font-size:14px; font-weight:700; color:#1F7349; letter-spacing:.06em;">05</span>
+        <h2 style="font-size:30px; font-weight:700; letter-spacing:-.02em; margin:0; color:#222;">공통 컴포넌트</h2>
+      </div>
+      <p style="font-size:16px; line-height:1.7; color:#888; margin:0 0 36px; max-width:580px;">버튼 상태(호버·액티브·비활성)를 정식화하고, 카테고리 필터칩·검색·브레드크럼을 새로 추가했습니다.</p>
+
+      <!-- 버튼 + 상태 -->
+      <div style="background:#fff; border:1px solid #EFEBE3; border-radius:16px; padding:28px; box-shadow:0 1px 3px rgba(0,0,0,.04); margin-bottom:24px;">
+        <div style="font-size:13px; font-weight:700; color:#888; margin-bottom:18px;">버튼 · 상태</div>
+        <div style="display:flex; gap:14px; align-items:center; flex-wrap:wrap; margin-bottom:18px;">
+          <button class="hs-btn hs-btn-primary" style="border:none; background:#1F7349; color:#fff; font-family:inherit; font-size:15px; font-weight:700; padding:13px 26px; border-radius:8px; cursor:pointer; box-shadow:0 2px 8px rgba(31,115,73,.22);">1차 버튼</button>
+          <button class="hs-btn hs-btn-secondary" style="background:#fff; color:#1F7349; font-family:inherit; font-size:15px; font-weight:700; padding:13px 26px; border-radius:8px; cursor:pointer; border:1.5px solid #1F7349;">2차 버튼</button>
+          <button class="hs-btn hs-btn-ghost" style="background:transparent; color:#888; font-family:inherit; font-size:15px; font-weight:400; padding:13px 18px; border-radius:8px; cursor:pointer; border:none;">텍스트 버튼 →</button>
+          <button disabled style="border:none; background:#EDEAE3; color:#B8B2A6; font-family:inherit; font-size:15px; font-weight:700; padding:13px 26px; border-radius:8px; cursor:not-allowed;">비활성</button>
+        </div>
+        <div style="display:flex; gap:24px; font-size:13px; color:#888; flex-wrap:wrap;">
+          <span>기본 <b style="color:#1F7349;">700 #1F7349</b></span>
+          <span>호버 <b style="color:#185C3A;">800 #185C3A</b></span>
+          <span>액티브 <b style="color:#11422A;">900 #11422A</b></span>
+          <span>비활성 <b style="color:#B8B2A6;">#EDEAE3 / #B8B2A6</b></span>
+        </div>
+      </div>
+
+      <!-- 필터칩 + 검색 -->
+      <div style="display:grid; grid-template-columns:1.3fr 1fr; gap:24px; margin-bottom:24px;">
+        <div style="background:#fff; border:1px solid #EFEBE3; border-radius:16px; padding:28px; box-shadow:0 1px 3px rgba(0,0,0,.04);">
+          <div style="font-size:13px; font-weight:700; color:#888; margin-bottom:18px;">카테고리 필터칩 <span style="font-weight:400;">(NEW)</span></div>
+          <div style="display:flex; gap:10px; flex-wrap:wrap;">
+            <span style="font-size:14px; font-weight:700; color:#fff; background:#1F7349; padding:9px 18px; border-radius:999px; cursor:pointer;">전체</span>
+            <span class="hs-chip" style="font-size:14px; font-weight:500; color:#333; background:#fff; border:1px solid #EFEBE3; padding:9px 18px; border-radius:999px;">시스템 환기가전</span>
+            <span class="hs-chip" style="font-size:14px; font-weight:500; color:#333; background:#fff; border:1px solid #EFEBE3; padding:9px 18px; border-radius:999px;">욕실 환기가전</span>
+            <span class="hs-chip" style="font-size:14px; font-weight:500; color:#333; background:#fff; border:1px solid #EFEBE3; padding:9px 18px; border-radius:999px;">주방 환기가전</span>
+            <span class="hs-chip" style="font-size:14px; font-weight:500; color:#333; background:#fff; border:1px solid #EFEBE3; padding:9px 18px; border-radius:999px;">생활 에어가전</span>
+            <span class="hs-chip" style="font-size:14px; font-weight:500; color:#333; background:#fff; border:1px solid #EFEBE3; padding:9px 18px; border-radius:999px;">부자재</span>
+          </div>
+        </div>
+        <div style="background:#fff; border:1px solid #EFEBE3; border-radius:16px; padding:28px; box-shadow:0 1px 3px rgba(0,0,0,.04);">
+          <div style="font-size:13px; font-weight:700; color:#888; margin-bottom:18px;">검색 입력 <span style="font-weight:400;">(NEW · focus 시 그린 링)</span></div>
+          <label class="hs-input" style="display:flex; align-items:center; gap:10px; border:1.5px solid #EFEBE3; border-radius:8px; padding:13px 16px;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><path d="M21 21l-4-4"></path></svg>
+            <input type="text" placeholder="궁금한 환기 이야기를 검색하세요" style="border:none; outline:none; font-family:inherit; font-size:15px; color:#333; width:100%; background:transparent;">
+          </label>
+        </div>
+      </div>
+
+      <!-- 브레드크럼 + 페이지네이션 -->
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-bottom:24px;">
+        <div style="background:#fff; border:1px solid #EFEBE3; border-radius:16px; padding:28px; box-shadow:0 1px 3px rgba(0,0,0,.04);">
+          <div style="font-size:13px; font-weight:700; color:#888; margin-bottom:18px;">브레드크럼 <span style="font-weight:400;">(NEW)</span></div>
+          <div style="display:flex; align-items:center; gap:8px; font-size:14px;">
+            <a href="#" style="color:#888; text-decoration:none;">홈</a>
+            <span style="color:#CFC8BB;">/</span>
+            <a href="#" style="color:#888; text-decoration:none;">욕실 환기가전</a>
+            <span style="color:#CFC8BB;">/</span>
+            <span style="color:#1F7349; font-weight:700;">욕실 곰팡이, 환기로 끝내기</span>
+          </div>
+        </div>
+        <div style="background:#fff; border:1px solid #EFEBE3; border-radius:16px; padding:28px; box-shadow:0 1px 3px rgba(0,0,0,.04);">
+          <div style="font-size:13px; font-weight:700; color:#888; margin-bottom:18px;">페이지네이션</div>
+          <div style="display:flex; gap:8px; align-items:center;">
+            <button class="hs-page" style="width:40px; height:40px; border-radius:8px; border:1px solid #EFEBE3; background:#fff; color:#888; font-family:inherit; font-size:15px; cursor:pointer;">‹</button>
+            <button style="width:40px; height:40px; border-radius:8px; border:none; background:#1F7349; color:#fff; font-family:inherit; font-size:15px; font-weight:700; cursor:pointer;">1</button>
+            <button class="hs-page" style="width:40px; height:40px; border-radius:8px; border:1px solid #EFEBE3; background:#fff; color:#333; font-family:inherit; font-size:15px; cursor:pointer;">2</button>
+            <button class="hs-page" style="width:40px; height:40px; border-radius:8px; border:1px solid #EFEBE3; background:#fff; color:#333; font-family:inherit; font-size:15px; cursor:pointer;">3</button>
+            <span style="color:#888; padding:0 4px;">…</span>
+            <button class="hs-page" style="width:40px; height:40px; border-radius:8px; border:1px solid #EFEBE3; background:#fff; color:#333; font-family:inherit; font-size:15px; cursor:pointer;">12</button>
+            <button class="hs-page" style="width:40px; height:40px; border-radius:8px; border:1px solid #EFEBE3; background:#fff; color:#888; font-family:inherit; font-size:15px; cursor:pointer;">›</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 푸터 -->
+      <div style="font-size:13px; font-weight:700; color:#888; margin-bottom:14px;">푸터 (그린 배경 · 유일하게 그린 면 사용 허용)</div>
+      <footer style="background:#1F7349; border-radius:16px; padding:48px; color:#fff; box-shadow:0 12px 40px rgba(31,115,73,.16);">
+        <div style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:32px;">
+          <div style="max-width:300px;">
+            <div style="display:flex; align-items:center; gap:10px; margin-bottom:16px;">
+              <div style="width:26px; height:26px; border-radius:7px; background:#fff; display:flex; align-items:center; justify-content:center; color:#1F7349; font-weight:700; font-size:15px;">H</div>
+              <span style="font-size:19px; font-weight:700; letter-spacing:-.02em;">HIMPEL</span>
+            </div>
+            <p style="font-size:14px; line-height:1.7; color:rgba(255,255,255,.78); margin:0;">환기의 기준을 바꾸는 사람들. 공기의 흐름을 설계합니다.</p>
+          </div>
+          <div style="display:flex; gap:56px; flex-wrap:wrap;">
+            <div>
+              <div style="font-size:13px; font-weight:700; color:rgba(255,255,255,.6); margin-bottom:14px;">카테고리</div>
+              <div style="display:flex; flex-direction:column; gap:10px;">
+                <a href="#" style="font-size:14px; color:rgba(255,255,255,.88); text-decoration:none;">시스템 환기가전</a>
+                <a href="#" style="font-size:14px; color:rgba(255,255,255,.88); text-decoration:none;">욕실 환기가전</a>
+                <a href="#" style="font-size:14px; color:rgba(255,255,255,.88); text-decoration:none;">주방 환기가전</a>
+                <a href="#" style="font-size:14px; color:rgba(255,255,255,.88); text-decoration:none;">생활 에어가전</a>
+              </div>
+            </div>
+            <div>
+              <div style="font-size:13px; font-weight:700; color:rgba(255,255,255,.6); margin-bottom:14px;">바로가기</div>
+              <div style="display:flex; flex-direction:column; gap:10px;">
+                <a href="#" style="font-size:14px; color:rgba(255,255,255,.88); text-decoration:none;">제품 보기</a>
+                <a href="#" style="font-size:14px; color:rgba(255,255,255,.88); text-decoration:none;">블로그</a>
+                <a href="#" style="font-size:14px; color:rgba(255,255,255,.88); text-decoration:none;">고객지원</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div style="border-top:1px solid rgba(255,255,255,.18); margin-top:36px; padding-top:24px; font-size:13px; color:rgba(255,255,255,.6);">© 2026 HIMPEL. All rights reserved.</div>
+      </footer>
+    </div>
+  </section>
+
+</div>
+</x-dc>
+</body>
+</html>

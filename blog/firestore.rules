@@ -1,0 +1,10 @@
+rules_version = '2';
+// 골격 규칙 — 실제 권한 정책은 추후 구현.
+// 글: 공개 읽기 / 관리자만 쓰기. 댓글: 공개 읽기·쓰기 / 관리자만 삭제.
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
